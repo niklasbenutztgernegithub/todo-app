@@ -9,20 +9,32 @@
   </head>
   <body>
     <header>
-    <h1>NIKLAS' MEGA GEILE TO DO LIST *EMOTIONAL*</h1>
+    <h1 class="header">My to do's</h1>
     </header>
     <main class="checkliste">
       <section class="checklist-item">
-        <p>dies hier ist eine aufgabe, die es zu lösen gilt.</p>
-        <div class="checkbox">
-        <p>check</p>
-        </div>
+        <p class= "checklist-item-text">dies hier ist eine aufgabe</p>
+        <button class="checkbox done"></button>
+        <button class="checkbox delete"></button>   
       </section>
       <section class="checklist-item">
-        <p>dies hier ist eine aufgabe, die es zu lösen gilt.</p>
-        <div class="checkbox">
-        <p>check</p>
+        <p class="checklist-item-text">dies hier ist eine aufgabe</p>
+        <button class="checkbox done"></button>
+        <button class="checkbox delete"></button>
+      </section>
+      <section class="checklist-item add">
+        <p class="checklist-item-text add-text">add new task</p>
+        <button class="checkbox add-item"></button>
+      </section>
+      <h2 class="header-done">Done</h2>
+      <section class="checklist-item empty">
+        <p class="checklist-item-text empty-text">wow, such empty</p>
+        <div class="icon-empty">
         </div>
+      </section>
+      <section class="checklist-item undo">
+        <p class="checklist-item-text undo-text">dies ist eine aufgabe</p>
+        <button class="checkbox undo"></button>
       </section>
     </main>
     <script type="module" src="/main.js"></script>

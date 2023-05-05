@@ -1,98 +1,132 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-size: max(calc(16vmin * 100 / 1440), 16px);
+}
+
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+[hidden] {
+  display: none;
+}
+
+:focus {
+  outline: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 body {
+  line-height: 1.25;
+  min-width: 20rem;
+  overscroll-behavior: none;
+  hyphens: auto;
   color: white;
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   background-color: #18181B;
+}
+
+.header {
+  margin: 30px;
+}
+button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+img,
+video {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-left: 30px;
 }
-.checkliste {
-  gap: 30px;
-}
+
 .checklist-item {
+  align-items: center;
   max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
   background-color: #18181B;
-  padding: 20px 30px;
+  padding: 12px;
   display: flex;
-  gap:250px;
   border-radius: 12px;
   border: 1px solid #3F3F46;
+  gap: 4px;
+  margin: 0px 10px;
+}
+.checklist-item-text {
+  margin-right: auto;
 }
 .checklist-item + .checklist-item {
   margin-top: 20px;
 }
+.add {background-color: #27272A;}
+
 .checkbox {
-  background-color: gray;
-  width: 20%;
-  height: auto;
+  background-color: #27272A;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #3F3F46;
 }
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.icon-empty {
+  background-image: url("/public/empty.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 32px;
+  width: 32px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.header-done {
+  text-align: center;
+  font-size: 30px;
+  margin: 20px 0px;
 }
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.undo-text {
+  text-decoration: line-through;
+  color: #A1A1AA;
 }
+.empty-text {
+  color: #A1A1AA;
+}
+.checkbox.done {background-image: url("/public/done.svg");}
 
-.card {
-  padding: 2em;
-}
+.checkbox.delete {background-image: url("/public/delete.svg");}
 
-.read-the-docs {
-  color: #888;
-}
+.checkbox.empty {background-image: url("/public/empty.svg");}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+.checkbox.undo {background-image: url("/public/undo.svg")}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.add-item {
+background-image: url("/public/add.svg");
+background-color: #27272A;
+}
+.empty-text{
+  margin-right: 0px;
+}
+.empty {
+  justify-content: center;
 }
