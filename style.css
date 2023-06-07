@@ -76,7 +76,7 @@ h1 {
   gap: 4px;
   margin: 0px 10px;
 }
-.checklist-item-text {
+.checklist-item-text, .checklist-item-input {
   margin-right: auto;
 }
 .checklist-item + .checklist-item {
