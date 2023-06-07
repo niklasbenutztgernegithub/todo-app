@@ -9,7 +9,12 @@ let checklistItem = (text) => {
    <button class="checkbox done"></button>
    <button class="checkbox delete"></button>   
  </section>`, "text/html")
-    return body
+    const element = body.querySelector('body>*');
+    let removeButton = element.querySelector(".checkbox.delete")
+    removeButton.addEventListener("click", () => {
+        element.remove()
+    })
+    return element;
 }
 const checkliste = document.querySelector(".checkliste")
 testinput.addEventListener("input", () => {
