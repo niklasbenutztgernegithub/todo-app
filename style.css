@@ -67,7 +67,6 @@ h1 {
 .checklist-item {
   align-items: center;
   max-width: 1280px;
-  margin: 0 auto;
   background-color: #18181B;
   padding: 12px;
   display: flex;
@@ -75,6 +74,11 @@ h1 {
   border: 1px solid #3F3F46;
   gap: 4px;
   margin: 0px 10px;
+  margin-bottom: 20px;
+}
+.checklist-item.undo {
+  text-decoration: line-through;
+  color: #A1A1AA;
 }
 .checklist-item-text, .checklist-item-input {
   margin-right: auto;
@@ -105,10 +109,7 @@ h1 {
   font-size: 30px;
   margin: 20px 0px;
 }
-.undo-text {
-  text-decoration: line-through;
-  color: #A1A1AA;
-}
+
 .empty-text {
   color: #A1A1AA;
 }
@@ -129,4 +130,8 @@ background-color: #27272A;
 }
 .empty {
   justify-content: center;
+}
+.checklist-item-input {
+  margin-right: 10px;
+flex-grow: 1;
 }
