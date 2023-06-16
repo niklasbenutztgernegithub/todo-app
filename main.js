@@ -11,22 +11,7 @@ const local = (key, value = null) => {
     return localStorage?.[key] ? JSON.parse(localStorage[key]) : null;
 };
 
-if (!local("toDos")) local("toDos", []);
-
-
-// hides/shows the "wow such empty" container
-
-const wowSuchEmpty = () => {
-    if (checklistDone.children.length > 0) {
-        checklistEmpty.style.display = "none";
-    } else { checklistEmpty.removeAttribute("style"); }
-};
-
-
-// generates a checklist item 
-
-const checklistItem = (text) => {
-    const time = Date.now()
+const checklistItem = (text, time = Date.now()) => {
     const parser = new DOMParser();
     const { body } = parser.parseFromString(`<section id="${time}" class="checklist-item">
    <p class= "checklist-item-text">`+ text + `</p>
@@ -34,9 +19,10 @@ const checklistItem = (text) => {
    <button class="checkbox delete"></button>   
  </section>`, "text/html");
     const element = body.querySelector('body>*');
-    let removeButton = element.querySelector(".checkbox.delete");
 
-    // remove the checklist element 
+        // remove the checklist element 
+
+    let removeButton = element.querySelector(".checkbox.delete");
     removeButton.addEventListener("click", () => {
         if (confirm("Möchtest du folgende Notiz löschen?: " + text)) {
             element.remove();
@@ -60,6 +46,28 @@ const checklistItem = (text) => {
     });
     return element;
 };
+
+
+if (!local("toDos")) local("toDos", []);
+if (local("toDos")) {
+  for (const toDo of local("toDos")) {
+    checkliste.prepend(checklistItem(toDo.text, toDo.time));
+
+  }
+}
+
+
+// hides/shows the "wow such empty" container
+
+const wowSuchEmpty = () => {
+    if (checklistDone.children.length > 0) {
+        checklistEmpty.style.display = "none";
+    } else { checklistEmpty.removeAttribute("style"); }
+};
+
+
+// generates a checklist item 
+
 
 input.addEventListener("input", () => {
     textinput = input.value;
